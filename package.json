@@ -1,7 +1,12 @@
 {
+  "type": "module",
   "scripts": {
     "start": "node b1.js",
-    "dev": "nodemon b1.js"
+    "dev": "nodemon b1.js",
+    "start-b4": "node b4.js",
+    "dev-b4": "nodemon b4.js",
+    "start-b5": "node b5.js",
+    "dev-b5": "nodemon b5.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
