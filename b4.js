@@ -22,7 +22,10 @@ async function fetchRecords() {
 
         const records = await collection.find().toArray();
 
-        console.log("Finded files:", records);
+        console.log(`Found ${records.length} products:`);
+        records.forEach((record, index) => {
+            console.log(`Product ${index + 1}:`, record);
+        });
     } catch (err) {
         console.error("Error to find files", err);
     }
