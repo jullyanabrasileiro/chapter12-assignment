@@ -3,7 +3,6 @@
 // Help with the command:
 // find().toArray();
 
-
 import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 
