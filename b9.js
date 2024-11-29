@@ -11,23 +11,27 @@ import { MongoClient } from "mongodb";
 dotenv.config();
 
 const uri = process.env.MONGO_URI;
-
 const client = new MongoClient(uri);
 
-async function fetchRecordsAge12PriceGreaterThan20() {
-    try {        
+async function fetchRecordsPriceGreaterThan20Age12() {
+    try {
+        await client.connect();
+        console.log("Connected to MongoDB!");
+
         const database = client.db("productDB"); 
-        const collection = database.collection("products");
-
+        const collection = database.collection("products"); 
+       
         const records = await collection.find({
-            price: { $gt: 20 },
-            age: 12
-        }).toArray();
+            price: { $gt: 20 }, 
+            age: 12             
+        }).toArray();  
 
-        console.log("Products with price less than 20:", records);
+        console.log("Products with price > 20 and age 12:", records);
     } catch (error) {
-        console.error("Error while fetchng files", error)
+        console.error("Error while fetching files", error);
+    } finally {
+        await client.close(); 
     }
 }
 
-fetchRecordsAge12PriceGreaterThan20();
+fetchRecordsPriceGreaterThan20Age12(); 
