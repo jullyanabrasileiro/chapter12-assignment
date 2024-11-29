@@ -9,8 +9,16 @@
     "dev-b5": "nodemon b5.js",
     "start-b6": "node b6.js",
     "dev-b6": "nodemon b6.js",
-    "start-b7": "node b5.js",
-    "dev-b7": "nodemon b5.js"
+    "start-b7": "node b7.js",
+    "dev-b7": "nodemon b7.js",
+    "start-b8": "node b8.js",
+    "dev-b8": "nodemon b8.js",
+    "start-b9": "node b9.js",
+    "dev-b9": "nodemon b9.js",
+    "start-b10": "node b10.js",
+    "dev-b10": "nodemon b10.js",
+    "start-b11": "node b11.js",
+    "dev-b11": "nodemon b11.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
