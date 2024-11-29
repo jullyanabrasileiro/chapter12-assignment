@@ -1,3 +1,8 @@
+// Open a file named b4.js and write a suitable code that will print to the console all
+// the records in mongodb
+// Help with the command:
+// find().toArray();
+
 import dotenv from "dotenv";
 import { MongoClient } from 'mongodb';
 

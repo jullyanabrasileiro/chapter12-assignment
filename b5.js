@@ -1,3 +1,8 @@
+// Open a file named b5.js and write a suitable code that will print to the console all
+// the records that are in mongodb that cost 20.
+// Help with the command:
+// find().toArray();
+
 import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 
