@@ -34,10 +34,6 @@ async function run() {
 
         const database = client.db("productDB"); 
         const collection = database.collection("products");
-        
-        //check for duplicates
-        const existingRecords = await collection.find().toArray();
-        const existingTitles = existingRecords.map(record => record.title);
 
         let products = [
             {
@@ -63,9 +59,20 @@ async function run() {
             { title: "puzzle cube", description: "3x3 Rubik's Cube", tags: ["toy", "brain"], age: 10, price: 20 }
         ];
 
-        const result = await collection.insertMany(products);
+        // Clear collection 
+        // await collection.deleteMany({});
+        // console.log("Cleared the products collection.");        
 
-        console.log("Products inserted:", result.insertedIds); 
+        const insertResult = await collection.insertMany(products);
+        console.log(`Inserted ${insertResult.insertedCount} products into the database.`);
+
+        // Fetch and print all records to confirm
+        const records = await collection.find().toArray();
+        console.log(`Database now contains ${records.length} products:`);
+        records.forEach((record, index) => {
+            console.log(`Product ${index + 1}:`, record);
+        });
+ 
     } catch (err) {
         console.error("Error:", err);
     } finally {
