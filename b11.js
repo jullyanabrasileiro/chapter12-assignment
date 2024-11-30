@@ -11,7 +11,7 @@ dotenv.config();
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 
-async function fetchRecordsPriceGreaterThan20Age12() {
+async function updateRecord() {
     try {
         await client.connect();
         console.log("Connected to MongoDB!");
@@ -23,6 +23,7 @@ async function fetchRecordsPriceGreaterThan20Age12() {
 
         const update = { $set: { price: 30 } };
 
+        // Update first matching record
         const result = await collection.updateOne(filter, update);
 
         if (result.modifiedCount > 0) {
@@ -32,7 +33,7 @@ async function fetchRecordsPriceGreaterThan20Age12() {
         }
 
         const records = await collection.find().toArray();
-        
+
         console.log("Updated records in the database:");
 
         records.forEach((record, index) => {
@@ -45,4 +46,4 @@ async function fetchRecordsPriceGreaterThan20Age12() {
     }
 }
 
-fetchRecordsPriceGreaterThan20Age12(); 
+updateRecord(); 
