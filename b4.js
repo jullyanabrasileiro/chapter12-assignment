@@ -28,6 +28,8 @@ async function fetchRecords() {
         });
     } catch (err) {
         console.error("Error to find files", err);
+    } finally {
+        await client.close();
     }
 }
 

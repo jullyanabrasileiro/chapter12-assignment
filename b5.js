@@ -28,6 +28,8 @@ async function fetchRecordsWithPrice20() {
 
     } catch (error) {
         console.error("Error while fetching records:", error);
+    } finally {
+        await client.close();
     }
 }
 
